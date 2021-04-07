@@ -26,3 +26,5 @@ Suggests: BiocStyle, knitr
 SystemRequirements: libbz2 & liblzma & libcurl (with header files), GNU make
 StagedInstall: no
 VignetteBuilder: knitr
+Remotes:
+    bioc::zlibbioc
