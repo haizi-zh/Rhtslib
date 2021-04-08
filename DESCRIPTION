@@ -1,10 +1,10 @@
-Package: Rhtslib
+Package: Rhtslib12
 Title: HTSlib high-throughput sequencing library as an R package
 Description: This package provides version 1.12 of the 'HTSlib' C
     library for high-throughput sequence analysis. The package is
     primarily useful to developers of other R packages who wish to
     make use of HTSlib. Motivation and instructions for use of this
-    package are in the vignette, vignette(package="Rhtslib", "Rhtslib").
+    package are in the vignette, vignette(package="Rhtslib12", "Rhtslib12").
 biocViews: DataImport, Sequencing
 URL: https://bioconductor.org/packages/Rhtslib, http://www.htslib.org/
 BugReports: https://github.com/Bioconductor/Rhtslib/issues
@@ -28,3 +28,4 @@ StagedInstall: no
 VignetteBuilder: knitr
 Remotes:
     bioc::zlibbioc
+RoxygenNote: 7.1.1

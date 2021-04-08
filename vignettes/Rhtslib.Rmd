@@ -1,8 +1,8 @@
 ---
-title: "Motivation and use of _Rhtslib_"
+title: "Motivation and use of _Rhtslib12_"
 author: "Nathaniel Hayden, Martin Morgan"
 date: "Compiled `r BiocStyle::doc_date()`;  Modified 25 June 2020"
-package: "`r BiocStyle::pkg_ver('Rhtslib')`"
+package: "`r BiocStyle::pkg_ver('Rhtslib12')`"
 abstract: >
   This package provides version 1.12 of the 'HTSlib' C library for
   high-throughput sequence analysis. The package is primarily useful
@@ -10,7 +10,7 @@ abstract: >
   HTSlib. Motivation and instructions for use of this package are in
   this vignette.
 vignette: >
-  %\VignetteIndexEntry{Motivation and use of Rhtslib}
+  %\VignetteIndexEntry{Motivation and use of Rhtslib12}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 output:
@@ -19,14 +19,14 @@ output:
 
 # Motivation
 
-`r BiocStyle::Biocpkg("Rhtslib")` is an R package that provides the C `HTSlib`
+`r BiocStyle::Biocpkg("Rhtslib12")` is an R package that provides the C `HTSlib`
 library for high-throughput sequence data analysis. The library
 provides APIs for creating, indexing, manipulating, and analyzing data
 in SAM/BAM/CRAM sequence files and VCF/BCF2 variant files. See the
 [HTSlib website](http://www.htslib.org/) for complete details and
 documentation.
 
-The `r BiocStyle::Biocpkg("Rhtslib")` package is primarily useful to developers
+The `r BiocStyle::Biocpkg("Rhtslib12")` package is primarily useful to developers
 of other R packages who want to use the HTSlib facilities in the C
 code of their own packages.
 
@@ -34,20 +34,20 @@ code of their own packages.
 
 The version of the included HTSlib is displayed at package load time,
 but a user can also query the HTSlib version directly by calling
-`Rhtslib:::htsVersion()` in an R session. The current version of the
-package is `r (capture.output(Rhtslib:::htsVersion(), type="message"))`.
+`Rhtslib12:::htsVersion()` in an R session. The current version of the
+package is `r (capture.output(Rhtslib12:::htsVersion(), type="message"))`.
 
 Effort is made to update the included version of HTSlib with minor
 version releases from the HTSlib authors. If you notice the included
 HTSlib is older than the current minor release of HTSlib, please
-contact the `r BiocStyle::Biocpkg("Rhtslib")` maintainer.
+contact the `r BiocStyle::Biocpkg("Rhtslib12")` maintainer.
 
 ## Motivation
 
-There are several advantages to using `Rhtslib`, rather than requiring
+There are several advantages to using `Rhtslib12`, rather than requiring
 an explicit user system dependency on `htslib` directly.
 
-- Using `Rhtslib` means that your users (who are not always
+- Using `Rhtslib12` means that your users (who are not always
   sophisticated system administrators) do not need to manually install
   their own library.
 - Your application uses a defined version of `htslib`, so that you as
@@ -57,39 +57,39 @@ an explicit user system dependency on `htslib` directly.
 # Use
 
 See the [`Rsamtools`](https://github.com/Bioconductor/Rsamtools) package
-for an example of a package that compiles and links against `Rhtslib`.
+for an example of a package that compiles and links against `Rhtslib12`.
 
 ## Find headers
 
 In order for the C/C++ compiler to find HTSlib headers (and zlib
 headers on Windows) during installation of your package, you must
-add `Rhtslib` and `zlibbioc` to the `LinkingTo` field of its
+add `Rhtslib12` and `zlibbioc` to the `LinkingTo` field of its
 `DESCRIPTION` file, e.g.,
 
-    LinkingTo: Rhtslib, zlibbioc
+    LinkingTo: Rhtslib12, zlibbioc
 
 Note that as of R 3.0.2 `LinkingTo` values can include version
-specifications, e.g., `LinkingTo: Rhtslib (>= 0.99.10)`.
+specifications, e.g., `LinkingTo: Rhtslib12 (>= 0.99.10)`.
 
 In C or C++ code files, use standard techniques, e.g., `#include
 "htslib/hts.h"`. Header files are available for perusal at (enter
 in an R session)
 
 ```{R headers}
-system.file(package="Rhtslib", "include")
+system.file(package="Rhtslib12", "include")
 ```
 
 ## Compile and link against the library
 
 To compile and link your package successfully against the HTSlib included
-in `r BiocStyle::Biocpkg("Rhtslib")`, you must include a `src/Makevars` file.
+in `r BiocStyle::Biocpkg("Rhtslib12")`, you must include a `src/Makevars` file.
 
 Create a `src/Makevars` file with the following lines
 
     RHTSLIB_LIBS=$(shell "${R_HOME}/bin${R_ARCH_BIN}/Rscript" -e \
-        'Rhtslib::pkgconfig("PKG_LIBS")')
+        'Rhtslib12::pkgconfig("PKG_LIBS")')
     RHTSLIB_CPPFLAGS=$(shell "${R_HOME}/bin${R_ARCH_BIN}/Rscript" -e \
-        'Rhtslib::pkgconfig("PKG_CPPFLAGS")')
+        'Rhtslib12::pkgconfig("PKG_CPPFLAGS")')
 
     PKG_LIBS=$(RHTSLIB_LIBS)
     PKG_CPPFLAGS=$(RHTSLIB_CPPFLAGS)
@@ -114,20 +114,20 @@ to the `PKG_LIBS=$(RHTSLIB_LIBS)` line, e.g.,
 [comment]: # Linux so this is no longer relevant.
 [comment]: #
 [comment]: # The Linux implementation embeds the location of the hts
-[comment]: # library in the Rhtslib shared object via the compiler
+[comment]: # library in the Rhtslib12 shared object via the compiler
 [comment]: # flag `-Wl,rpath,path`, where path is determined by
-[comment]: # `system.file("usrlib", package="Rhtslib")`. The
+[comment]: # `system.file("usrlib", package="Rhtslib12")`. The
 [comment]: # path determined by `system.file()` is from `.libPaths()`,
 [comment]: # and has resolved symbolic links to their actual path.
 [comment]: # This can cause problems, e.g., when the 'head' node of
 [comment]: # a cluster mimicks the cluster node via a symbolic link to
-[comment]: # the directory in which Rhtslib is installed. Use the
+[comment]: # the directory in which Rhtslib12 is installed. Use the
 [comment]: # environment variable `RHTSLIB_RPATH` to resolve this by
 [comment]: # setting it to the cluster-node accessible path.
 
 # Implementation notes
 
-`Rhtslib` provides both static and dynamic library versions of HTSlib
+`Rhtslib12` provides both static and dynamic library versions of HTSlib
 on Linux and Mac OS X platforms, but only the static version on
 Windows. The procedure above will link against the static library
 version of HTSlib on all platforms.

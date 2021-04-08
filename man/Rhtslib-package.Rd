@@ -1,6 +1,6 @@
-\name{Rhtslib-package}
-\alias{Rhtslib-package}
-\alias{Rhtslib}
+\name{Rhtslib12-package}
+\alias{Rhtslib12-package}
+\alias{Rhtslib12}
 \alias{htsVersion}
 
 \docType{package}
@@ -17,7 +17,7 @@
 \details{
 
     Instructions for use are in the vignette, available with
-    \code{browseVignettes(package="Rhtslib")}
+    \code{browseVignettes(package="Rhtslib12")}
 
 }
 
@@ -35,6 +35,6 @@
 
 \keyword{ package }
 \examples{
-packageDescription('Rhtslib')
-Rhtslib:::htsVersion()
+packageDescription('Rhtslib12')
+Rhtslib12:::htsVersion()
 }
