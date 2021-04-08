@@ -1,8 +1,8 @@
 ---
 title: "Motivation and use of _Rhtslib_"
 author: "Nathaniel Hayden, Martin Morgan"
-date: "Compiled `r doc_date()`;  Modified 25 June 2020"
-package: "`r pkg_ver('Rhtslib')`"
+date: "Compiled `r BiocStyle::doc_date()`;  Modified 25 June 2020"
+package: "`r BiocStyle::pkg_ver('Rhtslib')`"
 abstract: >
   This package provides version 1.12 of the 'HTSlib' C library for
   high-throughput sequence analysis. The package is primarily useful
@@ -19,14 +19,14 @@ output:
 
 # Motivation
 
-`r Biocpkg("Rhtslib")` is an R package that provides the C `HTSlib`
+`r BiocStyle::Biocpkg("Rhtslib")` is an R package that provides the C `HTSlib`
 library for high-throughput sequence data analysis. The library
 provides APIs for creating, indexing, manipulating, and analyzing data
 in SAM/BAM/CRAM sequence files and VCF/BCF2 variant files. See the
 [HTSlib website](http://www.htslib.org/) for complete details and
 documentation.
 
-The `r Biocpkg("Rhtslib")` package is primarily useful to developers
+The `r BiocStyle::Biocpkg("Rhtslib")` package is primarily useful to developers
 of other R packages who want to use the HTSlib facilities in the C
 code of their own packages.
 
@@ -40,7 +40,7 @@ package is `r (capture.output(Rhtslib:::htsVersion(), type="message"))`.
 Effort is made to update the included version of HTSlib with minor
 version releases from the HTSlib authors. If you notice the included
 HTSlib is older than the current minor release of HTSlib, please
-contact the `r Biocpkg("Rhtslib")` maintainer.
+contact the `r BiocStyle::Biocpkg("Rhtslib")` maintainer.
 
 ## Motivation
 
@@ -82,7 +82,7 @@ system.file(package="Rhtslib", "include")
 ## Compile and link against the library
 
 To compile and link your package successfully against the HTSlib included
-in `r Biocpkg("Rhtslib")`, you must include a `src/Makevars` file.
+in `r BiocStyle::Biocpkg("Rhtslib")`, you must include a `src/Makevars` file.
 
 Create a `src/Makevars` file with the following lines
 
