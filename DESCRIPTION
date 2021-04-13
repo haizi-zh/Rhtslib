@@ -8,7 +8,7 @@ Description: This package provides version 1.12 of the 'HTSlib' C
 biocViews: DataImport, Sequencing
 URL: https://bioconductor.org/packages/Rhtslib, http://www.htslib.org/
 BugReports: https://github.com/Bioconductor/Rhtslib/issues
-Version: 1.23.1.9000
+Version: 1.23.2
 License: LGPL (>= 2)
 Copyright: Unless otherwise noted in the file, all files outside
     src/htslib-1.12 and inst/include copyright Bioconductor; for files
@@ -26,6 +26,5 @@ Suggests: BiocStyle, knitr
 SystemRequirements: libbz2 & liblzma & libcurl (with header files), GNU make
 StagedInstall: no
 VignetteBuilder: knitr
-Remotes:
-    bioc::zlibbioc
 RoxygenNote: 7.1.1
+Remotes: bioc::zlibbioc
